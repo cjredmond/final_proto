@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="{% url 'league_update_view' league.id %}">Start!</a>
+<a href="{% url 'index_view' %}">Index</a>
+{{ schedule.amount }}
+{% for squad in squads %}
+{% if squad.user == request.user %}
+<a href="{% url 'squad_detail_view' squad.id %}">{{ squad }}-{{ squad.total_proj }}</a>
+{% endif %}
+{% endfor %}
+
+<h2>Standings</h2>
+{% for squad in standings %}
+{{ squad }} - {{ squad.total_proj }}<br>
+{% endfor %}
+
+{% endblock %}

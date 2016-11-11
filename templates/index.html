@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ user }}
+<a href="{% url 'login' %}">login</a>
+<a href="{% url 'logout' %}">logout</a>
+<a href="{% url 'user_create_view' %}">create user</a>
+<a href="{% url 'league_create_view' %}">League Create</a>
+{% for league in leagues %}
+<a href="{% url 'league_detail_view' league.id %}">{{league}}</a>
+{% endfor %}
+
+
+
+{% endblock %}
